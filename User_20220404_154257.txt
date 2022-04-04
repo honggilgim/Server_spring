@@ -1,0 +1,78 @@
+﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- User Table Create SQL
+CREATE TABLE User
+(
+    `User_Code`  INT            NOT NULL    AUTO_INCREMENT COMMENT '사용자식별코드', 
+    `User_ID`    VARCHAR(45)    NULL        COMMENT '아이디', 
+    `User_PW`    VARCHAR(45)    NULL        COMMENT '패스워드', 
+    `User_Nick`  VARCHAR(45)    NULL        COMMENT '별명', 
+    `User_Num`   INT            NULL        COMMENT '주민등록번호', 
+    `User_Tell`  INT            NULL        COMMENT '휴대폰번호', 
+    `User_Name`  VARCHAR(45)    NULL        COMMENT '이름', 
+    `User_Role`  VARCHAR(45)    NULL        COMMENT '권한', 
+     PRIMARY KEY (User_Code)
+);
+
+ALTER TABLE User COMMENT '사용자정보';
+
+
+-- Board Table Create SQL
+CREATE TABLE Board
+(
+    `Board_Code`       INT            NOT NULL    AUTO_INCREMENT COMMENT '게시글번호', 
+    `User_Code`        INT            NULL        COMMENT '사용자식별코드', 
+    `Board_Name`       VARCHAR(45)    NULL        COMMENT '게시글이름', 
+    `Board_Location`   VARCHAR(45)    NULL        COMMENT '여행지위치', 
+    `Board_Text`       VARCHAR(45)    NULL        COMMENT '여행지정보', 
+    `Board_User_text`  VARCHAR(45)    NULL        COMMENT '사용자글', 
+    `Board_Good`       INT            NULL        COMMENT '좋아요', 
+    `여행날짜`             VARCHAR(45)    NULL        COMMENT '여행날짜', 
+    `Board_Upload`     DATETIME       NULL        COMMENT '업로드날짜', 
+    `Board_LookUp`     INT            NULL        COMMENT '조회수', 
+     PRIMARY KEY (Board_Code)
+);
+
+ALTER TABLE Board COMMENT '게시글';
+
+ALTER TABLE Board
+    ADD CONSTRAINT FK_Board_User_Code_User_User_Code FOREIGN KEY (User_Code)
+        REFERENCES User (User_Code) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- Like Table Create SQL
+CREATE TABLE Like
+(
+    `Like_Code`   INT    NOT NULL    AUTO_INCREMENT COMMENT '찜고유번호', 
+    `User_Code`   INT    NULL        COMMENT '사용자식별코드', 
+    `Board_Code`  INT    NULL        COMMENT '게시글번호', 
+     PRIMARY KEY (Like_Code)
+);
+
+ALTER TABLE Like COMMENT '찜목록';
+
+ALTER TABLE Like
+    ADD CONSTRAINT FK_Like_User_Code_User_User_Code FOREIGN KEY (User_Code)
+        REFERENCES User (User_Code) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE Like
+    ADD CONSTRAINT FK_Like_Board_Code_Board_Board_Code FOREIGN KEY (Board_Code)
+        REFERENCES Board (Board_Code) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- Tag Table Create SQL
+CREATE TABLE Tag
+(
+    `Tag_Code`    INT            NOT NULL    AUTO_INCREMENT COMMENT '태그고유번호', 
+    `Board_Code`  INT            NULL        COMMENT '게시글번호', 
+    `Tag_Name`    VARCHAR(45)    NULL        COMMENT '태그이름', 
+     PRIMARY KEY (Tag_Code)
+);
+
+ALTER TABLE Tag COMMENT '태그테이블';
+
+ALTER TABLE Tag
+    ADD CONSTRAINT FK_Tag_Board_Code_Board_Board_Code FOREIGN KEY (Board_Code)
+        REFERENCES Board (Board_Code) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
