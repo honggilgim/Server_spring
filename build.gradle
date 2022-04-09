@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.6.6'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+
 }
 
 group = 'com.example'
@@ -15,6 +16,28 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+	implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.2.2'
+	// https://mvnrepository.com/artifact/binaryage/devtools
+	testImplementation group: 'binaryage', name: 'devtools', version: '1.0.5'
+	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.6.6'
+	// jpa - mybatis 혼용 depedency
+	// https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+	implementation group: 'org.springframework', name: 'spring-jdbc', version: '5.3.18'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 커넥션 풀을 위한 디펜던시
+	implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.8.0'
+	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+	implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.6.3'
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager jpa 용 hibernate
+	implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.6.7.Final'
+	// https://mvnrepository.com/artifact/org.mybatis/mybatis
+	implementation group: 'org.mybatis', name: 'mybatis', version: '3.5.9'
+
 }
 
 tasks.named('test') {
