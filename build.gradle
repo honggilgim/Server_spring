@@ -37,6 +37,23 @@ dependencies {
 	implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.6.7.Final'
 	// https://mvnrepository.com/artifact/org.mybatis/mybatis
 	implementation group: 'org.mybatis', name: 'mybatis', version: '3.5.9'
+	// 회원가입, 로그인 관련
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.6.5'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.6.5'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web-services
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web-services', version: '2.6.5'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.0'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
+	implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.13.2'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.6.6'
+	// https://mvnrepository.com/artifact/javax.validation/validation-api
+	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.6.6'
 
 }
 
